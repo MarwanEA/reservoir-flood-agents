@@ -1,5 +1,7 @@
 # reservoir-flood-agents
 
+[![DOI](https://zenodo.org/badge/1350198665.svg)](https://doi.org/10.5281/zenodo.22152127)
+
 Code for "A Multi-Agent AI Decision-Support Framework for Reservoir Flood Operations: The 2026 Oued El Makhazine Crisis, Morocco," submitted to CAISN 2026.
 
 The paper proposes a six-agent pipeline for reservoir flood-release decisions and evaluates it against the January-February 2026 crisis at the Oued El Makhazine dam in Morocco's Loukkos basin. This repository has the pipeline code, the archived weather data it runs on, three standalone sensitivity checks, and the pipeline's own output for the case-study window.
@@ -53,4 +55,4 @@ See DATA_AVAILABILITY.md for the full breakdown and how to request the restricte
 
 If you use this code, cite the paper. See CITATION.cff.
 
-Zenodo DOI: ==FILL_ZENODO_DOI_HERE==
+Zenodo DOI: [https://doi.org/10.5281/zenodo.22152127](https://doi.org/10.5281/zenodo.22152127)
