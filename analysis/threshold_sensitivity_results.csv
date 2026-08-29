@@ -1,0 +1,225 @@
+method,param,lead_time,bulletin_date,level,n_episodes,flag_raised_date,offset_days,direction
+rate_of_rise,2.0x,D0,2026-01-16,informational,6,2026-01-24,8,lag 8d
+rate_of_rise,2.0x,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",6,2026-01-30,1,lag 1d
+rate_of_rise,2.0x,D0,2026-02-01,orange,6,2026-02-02,1,lag 1d
+rate_of_rise,2.0x,D0,2026-02-02,red,6,2026-02-02,0,match
+rate_of_rise,2.0x,D0,2026-02-03,red,6,2026-02-03,0,match
+rate_of_rise,2.0x,D0,2026-02-05,orange,6,2026-02-03,-2,led 2d
+rate_of_rise,2.0x,D0,2026-02-07,orange,6,2026-02-07,0,match
+rate_of_rise,2.0x,T-24h,2026-01-16,informational,5,2026-01-22,6,lag 6d
+rate_of_rise,2.0x,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",5,2026-02-01,3,lag 3d
+rate_of_rise,2.0x,T-24h,2026-02-01,orange,5,2026-02-01,0,match
+rate_of_rise,2.0x,T-24h,2026-02-02,red,5,2026-02-02,0,match
+rate_of_rise,2.0x,T-24h,2026-02-03,red,5,2026-02-02,-1,led 1d
+rate_of_rise,2.0x,T-24h,2026-02-05,orange,5,2026-02-06,1,lag 1d
+rate_of_rise,2.0x,T-24h,2026-02-07,orange,5,2026-02-06,-1,led 1d
+rate_of_rise,2.0x,T-48h,2026-01-16,informational,5,2026-01-22,6,lag 6d
+rate_of_rise,2.0x,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",5,2026-01-31,2,lag 2d
+rate_of_rise,2.0x,T-48h,2026-02-01,orange,5,2026-02-01,0,match
+rate_of_rise,2.0x,T-48h,2026-02-02,red,5,2026-02-02,0,match
+rate_of_rise,2.0x,T-48h,2026-02-03,red,5,2026-02-02,-1,led 1d
+rate_of_rise,2.0x,T-48h,2026-02-05,orange,5,2026-02-02,-3,led 3d
+rate_of_rise,2.0x,T-48h,2026-02-07,orange,5,2026-02-02,-5,led 5d
+rate_of_rise,2.0x,T-72h,2026-01-16,informational,5,2026-01-21,5,lag 5d
+rate_of_rise,2.0x,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",5,2026-01-30,1,lag 1d
+rate_of_rise,2.0x,T-72h,2026-02-01,orange,5,2026-02-01,0,match
+rate_of_rise,2.0x,T-72h,2026-02-02,red,5,2026-02-01,-1,led 1d
+rate_of_rise,2.0x,T-72h,2026-02-03,red,5,2026-02-01,-2,led 2d
+rate_of_rise,2.0x,T-72h,2026-02-05,orange,5,2026-02-01,-4,led 4d
+rate_of_rise,2.0x,T-72h,2026-02-07,orange,5,2026-02-01,-6,led 6d
+rate_of_rise,2.5x,D0,2026-01-16,informational,4,2026-01-24,8,lag 8d
+rate_of_rise,2.5x,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-01-30,1,lag 1d
+rate_of_rise,2.5x,D0,2026-02-01,orange,4,2026-02-02,1,lag 1d
+rate_of_rise,2.5x,D0,2026-02-02,red,4,2026-02-02,0,match
+rate_of_rise,2.5x,D0,2026-02-03,red,4,2026-02-03,0,match
+rate_of_rise,2.5x,D0,2026-02-05,orange,4,2026-02-03,-2,led 2d
+rate_of_rise,2.5x,D0,2026-02-07,orange,4,2026-02-03,-4,led 4d
+rate_of_rise,2.5x,T-24h,2026-01-16,informational,5,2026-01-22,6,lag 6d
+rate_of_rise,2.5x,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",5,2026-02-01,3,lag 3d
+rate_of_rise,2.5x,T-24h,2026-02-01,orange,5,2026-02-01,0,match
+rate_of_rise,2.5x,T-24h,2026-02-02,red,5,2026-02-02,0,match
+rate_of_rise,2.5x,T-24h,2026-02-03,red,5,2026-02-02,-1,led 1d
+rate_of_rise,2.5x,T-24h,2026-02-05,orange,5,2026-02-06,1,lag 1d
+rate_of_rise,2.5x,T-24h,2026-02-07,orange,5,2026-02-06,-1,led 1d
+rate_of_rise,2.5x,T-48h,2026-01-16,informational,4,2026-01-23,7,lag 7d
+rate_of_rise,2.5x,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-01-31,2,lag 2d
+rate_of_rise,2.5x,T-48h,2026-02-01,orange,4,2026-02-01,0,match
+rate_of_rise,2.5x,T-48h,2026-02-02,red,4,2026-02-02,0,match
+rate_of_rise,2.5x,T-48h,2026-02-03,red,4,2026-02-02,-1,led 1d
+rate_of_rise,2.5x,T-48h,2026-02-05,orange,4,2026-02-02,-3,led 3d
+rate_of_rise,2.5x,T-48h,2026-02-07,orange,4,2026-02-02,-5,led 5d
+rate_of_rise,2.5x,T-72h,2026-01-16,informational,5,2026-01-21,5,lag 5d
+rate_of_rise,2.5x,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",5,2026-01-30,1,lag 1d
+rate_of_rise,2.5x,T-72h,2026-02-01,orange,5,2026-02-01,0,match
+rate_of_rise,2.5x,T-72h,2026-02-02,red,5,2026-02-01,-1,led 1d
+rate_of_rise,2.5x,T-72h,2026-02-03,red,5,2026-02-01,-2,led 2d
+rate_of_rise,2.5x,T-72h,2026-02-05,orange,5,2026-02-01,-4,led 4d
+rate_of_rise,2.5x,T-72h,2026-02-07,orange,5,2026-02-01,-6,led 6d
+rate_of_rise,3.0x,D0,2026-01-16,informational,2,2026-01-24,8,lag 8d
+rate_of_rise,3.0x,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",2,2026-01-24,-5,led 5d
+rate_of_rise,3.0x,D0,2026-02-01,orange,2,2026-02-03,2,lag 2d
+rate_of_rise,3.0x,D0,2026-02-02,red,2,2026-02-03,1,lag 1d
+rate_of_rise,3.0x,D0,2026-02-03,red,2,2026-02-03,0,match
+rate_of_rise,3.0x,D0,2026-02-05,orange,2,2026-02-03,-2,led 2d
+rate_of_rise,3.0x,D0,2026-02-07,orange,2,2026-02-03,-4,led 4d
+rate_of_rise,3.0x,T-24h,2026-01-16,informational,4,2026-01-22,6,lag 6d
+rate_of_rise,3.0x,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-02-01,3,lag 3d
+rate_of_rise,3.0x,T-24h,2026-02-01,orange,4,2026-02-01,0,match
+rate_of_rise,3.0x,T-24h,2026-02-02,red,4,2026-02-02,0,match
+rate_of_rise,3.0x,T-24h,2026-02-03,red,4,2026-02-02,-1,led 1d
+rate_of_rise,3.0x,T-24h,2026-02-05,orange,4,2026-02-02,-3,led 3d
+rate_of_rise,3.0x,T-24h,2026-02-07,orange,4,2026-02-02,-5,led 5d
+rate_of_rise,3.0x,T-48h,2026-01-16,informational,3,2026-01-23,7,lag 7d
+rate_of_rise,3.0x,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",3,2026-01-31,2,lag 2d
+rate_of_rise,3.0x,T-48h,2026-02-01,orange,3,2026-02-01,0,match
+rate_of_rise,3.0x,T-48h,2026-02-02,red,3,2026-02-01,-1,led 1d
+rate_of_rise,3.0x,T-48h,2026-02-03,red,3,2026-02-01,-2,led 2d
+rate_of_rise,3.0x,T-48h,2026-02-05,orange,3,2026-02-01,-4,led 4d
+rate_of_rise,3.0x,T-48h,2026-02-07,orange,3,2026-02-01,-6,led 6d
+rate_of_rise,3.0x,T-72h,2026-01-16,informational,5,2026-01-21,5,lag 5d
+rate_of_rise,3.0x,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",5,2026-01-30,1,lag 1d
+rate_of_rise,3.0x,T-72h,2026-02-01,orange,5,2026-02-01,0,match
+rate_of_rise,3.0x,T-72h,2026-02-02,red,5,2026-02-01,-1,led 1d
+rate_of_rise,3.0x,T-72h,2026-02-03,red,5,2026-02-01,-2,led 2d
+rate_of_rise,3.0x,T-72h,2026-02-05,orange,5,2026-02-01,-4,led 4d
+rate_of_rise,3.0x,T-72h,2026-02-07,orange,5,2026-02-01,-6,led 6d
+rate_of_rise,3.5x,D0,2026-01-16,informational,2,2026-01-24,8,lag 8d
+rate_of_rise,3.5x,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",2,2026-01-24,-5,led 5d
+rate_of_rise,3.5x,D0,2026-02-01,orange,2,2026-02-03,2,lag 2d
+rate_of_rise,3.5x,D0,2026-02-02,red,2,2026-02-03,1,lag 1d
+rate_of_rise,3.5x,D0,2026-02-03,red,2,2026-02-03,0,match
+rate_of_rise,3.5x,D0,2026-02-05,orange,2,2026-02-03,-2,led 2d
+rate_of_rise,3.5x,D0,2026-02-07,orange,2,2026-02-03,-4,led 4d
+rate_of_rise,3.5x,T-24h,2026-01-16,informational,4,2026-01-22,6,lag 6d
+rate_of_rise,3.5x,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-02-01,3,lag 3d
+rate_of_rise,3.5x,T-24h,2026-02-01,orange,4,2026-02-01,0,match
+rate_of_rise,3.5x,T-24h,2026-02-02,red,4,2026-02-02,0,match
+rate_of_rise,3.5x,T-24h,2026-02-03,red,4,2026-02-02,-1,led 1d
+rate_of_rise,3.5x,T-24h,2026-02-05,orange,4,2026-02-02,-3,led 3d
+rate_of_rise,3.5x,T-24h,2026-02-07,orange,4,2026-02-02,-5,led 5d
+rate_of_rise,3.5x,T-48h,2026-01-16,informational,3,2026-01-23,7,lag 7d
+rate_of_rise,3.5x,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",3,2026-01-31,2,lag 2d
+rate_of_rise,3.5x,T-48h,2026-02-01,orange,3,2026-02-01,0,match
+rate_of_rise,3.5x,T-48h,2026-02-02,red,3,2026-02-01,-1,led 1d
+rate_of_rise,3.5x,T-48h,2026-02-03,red,3,2026-02-01,-2,led 2d
+rate_of_rise,3.5x,T-48h,2026-02-05,orange,3,2026-02-01,-4,led 4d
+rate_of_rise,3.5x,T-48h,2026-02-07,orange,3,2026-02-01,-6,led 6d
+rate_of_rise,3.5x,T-72h,2026-01-16,informational,4,2026-01-21,5,lag 5d
+rate_of_rise,3.5x,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-01-30,1,lag 1d
+rate_of_rise,3.5x,T-72h,2026-02-01,orange,4,2026-01-31,-1,led 1d
+rate_of_rise,3.5x,T-72h,2026-02-02,red,4,2026-01-31,-2,led 2d
+rate_of_rise,3.5x,T-72h,2026-02-03,red,4,2026-01-31,-3,led 3d
+rate_of_rise,3.5x,T-72h,2026-02-05,orange,4,2026-01-31,-5,led 5d
+rate_of_rise,3.5x,T-72h,2026-02-07,orange,4,2026-01-31,-7,led 7d
+rate_of_rise,4.0x,D0,2026-01-16,informational,1,2026-01-24,8,lag 8d
+rate_of_rise,4.0x,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",1,2026-01-24,-5,led 5d
+rate_of_rise,4.0x,D0,2026-02-01,orange,1,2026-01-24,-8,led 8d
+rate_of_rise,4.0x,D0,2026-02-02,red,1,2026-01-24,-9,led 9d
+rate_of_rise,4.0x,D0,2026-02-03,red,1,2026-01-24,-10,led 10d
+rate_of_rise,4.0x,D0,2026-02-05,orange,1,2026-01-24,-12,led 12d
+rate_of_rise,4.0x,D0,2026-02-07,orange,1,2026-01-24,-14,led 14d
+rate_of_rise,4.0x,T-24h,2026-01-16,informational,4,2026-01-22,6,lag 6d
+rate_of_rise,4.0x,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-02-01,3,lag 3d
+rate_of_rise,4.0x,T-24h,2026-02-01,orange,4,2026-02-01,0,match
+rate_of_rise,4.0x,T-24h,2026-02-02,red,4,2026-02-02,0,match
+rate_of_rise,4.0x,T-24h,2026-02-03,red,4,2026-02-02,-1,led 1d
+rate_of_rise,4.0x,T-24h,2026-02-05,orange,4,2026-02-02,-3,led 3d
+rate_of_rise,4.0x,T-24h,2026-02-07,orange,4,2026-02-02,-5,led 5d
+rate_of_rise,4.0x,T-48h,2026-01-16,informational,3,2026-01-23,7,lag 7d
+rate_of_rise,4.0x,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",3,2026-01-31,2,lag 2d
+rate_of_rise,4.0x,T-48h,2026-02-01,orange,3,2026-02-01,0,match
+rate_of_rise,4.0x,T-48h,2026-02-02,red,3,2026-02-01,-1,led 1d
+rate_of_rise,4.0x,T-48h,2026-02-03,red,3,2026-02-01,-2,led 2d
+rate_of_rise,4.0x,T-48h,2026-02-05,orange,3,2026-02-01,-4,led 4d
+rate_of_rise,4.0x,T-48h,2026-02-07,orange,3,2026-02-01,-6,led 6d
+rate_of_rise,4.0x,T-72h,2026-01-16,informational,4,2026-01-21,5,lag 5d
+rate_of_rise,4.0x,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-01-30,1,lag 1d
+rate_of_rise,4.0x,T-72h,2026-02-01,orange,4,2026-01-31,-1,led 1d
+rate_of_rise,4.0x,T-72h,2026-02-02,red,4,2026-01-31,-2,led 2d
+rate_of_rise,4.0x,T-72h,2026-02-03,red,4,2026-01-31,-3,led 3d
+rate_of_rise,4.0x,T-72h,2026-02-05,orange,4,2026-01-31,-5,led 5d
+rate_of_rise,4.0x,T-72h,2026-02-07,orange,4,2026-01-31,-7,led 7d
+rate_of_rise,5.0x,D0,2026-01-16,informational,1,2026-01-24,8,lag 8d
+rate_of_rise,5.0x,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",1,2026-01-24,-5,led 5d
+rate_of_rise,5.0x,D0,2026-02-01,orange,1,2026-01-24,-8,led 8d
+rate_of_rise,5.0x,D0,2026-02-02,red,1,2026-01-24,-9,led 9d
+rate_of_rise,5.0x,D0,2026-02-03,red,1,2026-01-24,-10,led 10d
+rate_of_rise,5.0x,D0,2026-02-05,orange,1,2026-01-24,-12,led 12d
+rate_of_rise,5.0x,D0,2026-02-07,orange,1,2026-01-24,-14,led 14d
+rate_of_rise,5.0x,T-24h,2026-01-16,informational,4,2026-01-22,6,lag 6d
+rate_of_rise,5.0x,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-02-01,3,lag 3d
+rate_of_rise,5.0x,T-24h,2026-02-01,orange,4,2026-02-01,0,match
+rate_of_rise,5.0x,T-24h,2026-02-02,red,4,2026-02-02,0,match
+rate_of_rise,5.0x,T-24h,2026-02-03,red,4,2026-02-02,-1,led 1d
+rate_of_rise,5.0x,T-24h,2026-02-05,orange,4,2026-02-02,-3,led 3d
+rate_of_rise,5.0x,T-24h,2026-02-07,orange,4,2026-02-02,-5,led 5d
+rate_of_rise,5.0x,T-48h,2026-01-16,informational,1,2026-01-31,15,lag 15d
+rate_of_rise,5.0x,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",1,2026-01-31,2,lag 2d
+rate_of_rise,5.0x,T-48h,2026-02-01,orange,1,2026-01-31,-1,led 1d
+rate_of_rise,5.0x,T-48h,2026-02-02,red,1,2026-01-31,-2,led 2d
+rate_of_rise,5.0x,T-48h,2026-02-03,red,1,2026-01-31,-3,led 3d
+rate_of_rise,5.0x,T-48h,2026-02-05,orange,1,2026-01-31,-5,led 5d
+rate_of_rise,5.0x,T-48h,2026-02-07,orange,1,2026-01-31,-7,led 7d
+rate_of_rise,5.0x,T-72h,2026-01-16,informational,4,2026-01-21,5,lag 5d
+rate_of_rise,5.0x,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-01-30,1,lag 1d
+rate_of_rise,5.0x,T-72h,2026-02-01,orange,4,2026-01-31,-1,led 1d
+rate_of_rise,5.0x,T-72h,2026-02-02,red,4,2026-01-31,-2,led 2d
+rate_of_rise,5.0x,T-72h,2026-02-03,red,4,2026-01-31,-3,led 3d
+rate_of_rise,5.0x,T-72h,2026-02-05,orange,4,2026-01-31,-5,led 5d
+rate_of_rise,5.0x,T-72h,2026-02-07,orange,4,2026-01-31,-7,led 7d
+naive_precip_threshold,20mm,D0,2026-01-16,informational,6,2026-01-16,0,match
+naive_precip_threshold,20mm,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",6,2026-02-02,4,lag 4d
+naive_precip_threshold,20mm,D0,2026-02-01,orange,6,2026-02-02,1,lag 1d
+naive_precip_threshold,20mm,D0,2026-02-02,red,6,2026-02-02,0,match
+naive_precip_threshold,20mm,D0,2026-02-03,red,6,2026-02-03,0,match
+naive_precip_threshold,20mm,D0,2026-02-05,orange,6,2026-02-04,-1,led 1d
+naive_precip_threshold,20mm,D0,2026-02-07,orange,6,2026-02-07,0,match
+naive_precip_threshold,20mm,T-24h,2026-01-16,informational,4,2026-01-22,6,lag 6d
+naive_precip_threshold,20mm,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",4,2026-02-01,3,lag 3d
+naive_precip_threshold,20mm,T-24h,2026-02-01,orange,4,2026-02-01,0,match
+naive_precip_threshold,20mm,T-24h,2026-02-02,red,4,2026-02-02,0,match
+naive_precip_threshold,20mm,T-24h,2026-02-03,red,4,2026-02-02,-1,led 1d
+naive_precip_threshold,20mm,T-24h,2026-02-05,orange,4,2026-02-06,1,lag 1d
+naive_precip_threshold,20mm,T-24h,2026-02-07,orange,4,2026-02-06,-1,led 1d
+naive_precip_threshold,20mm,T-48h,2026-01-16,informational,6,2026-01-21,5,lag 5d
+naive_precip_threshold,20mm,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",6,2026-01-31,2,lag 2d
+naive_precip_threshold,20mm,T-48h,2026-02-01,orange,6,2026-02-01,0,match
+naive_precip_threshold,20mm,T-48h,2026-02-02,red,6,2026-02-02,0,match
+naive_precip_threshold,20mm,T-48h,2026-02-03,red,6,2026-02-02,-1,led 1d
+naive_precip_threshold,20mm,T-48h,2026-02-05,orange,6,2026-02-05,0,match
+naive_precip_threshold,20mm,T-48h,2026-02-07,orange,6,2026-02-05,-2,led 2d
+naive_precip_threshold,20mm,T-72h,2026-01-16,informational,8,2026-01-14,-2,led 2d
+naive_precip_threshold,20mm,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",8,2026-01-30,1,lag 1d
+naive_precip_threshold,20mm,T-72h,2026-02-01,orange,8,2026-02-01,0,match
+naive_precip_threshold,20mm,T-72h,2026-02-02,red,8,2026-02-01,-1,led 1d
+naive_precip_threshold,20mm,T-72h,2026-02-03,red,8,2026-02-04,1,lag 1d
+naive_precip_threshold,20mm,T-72h,2026-02-05,orange,8,2026-02-04,-1,led 1d
+naive_precip_threshold,20mm,T-72h,2026-02-07,orange,8,2026-02-04,-3,led 3d
+naive_precip_threshold,30mm,D0,2026-01-16,informational,2,2026-01-24,8,lag 8d
+naive_precip_threshold,30mm,D0,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",2,2026-01-24,-5,led 5d
+naive_precip_threshold,30mm,D0,2026-02-01,orange,2,2026-02-07,6,lag 6d
+naive_precip_threshold,30mm,D0,2026-02-02,red,2,2026-02-07,5,lag 5d
+naive_precip_threshold,30mm,D0,2026-02-03,red,2,2026-02-07,4,lag 4d
+naive_precip_threshold,30mm,D0,2026-02-05,orange,2,2026-02-07,2,lag 2d
+naive_precip_threshold,30mm,D0,2026-02-07,orange,2,2026-02-07,0,match
+naive_precip_threshold,30mm,T-24h,2026-01-16,informational,1,2026-02-06,21,lag 21d
+naive_precip_threshold,30mm,T-24h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",1,2026-02-06,8,lag 8d
+naive_precip_threshold,30mm,T-24h,2026-02-01,orange,1,2026-02-06,5,lag 5d
+naive_precip_threshold,30mm,T-24h,2026-02-02,red,1,2026-02-06,4,lag 4d
+naive_precip_threshold,30mm,T-24h,2026-02-03,red,1,2026-02-06,3,lag 3d
+naive_precip_threshold,30mm,T-24h,2026-02-05,orange,1,2026-02-06,1,lag 1d
+naive_precip_threshold,30mm,T-24h,2026-02-07,orange,1,2026-02-06,-1,led 1d
+naive_precip_threshold,30mm,T-48h,2026-01-16,informational,2,2026-02-02,17,lag 17d
+naive_precip_threshold,30mm,T-48h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",2,2026-02-02,4,lag 4d
+naive_precip_threshold,30mm,T-48h,2026-02-01,orange,2,2026-02-02,1,lag 1d
+naive_precip_threshold,30mm,T-48h,2026-02-02,red,2,2026-02-02,0,match
+naive_precip_threshold,30mm,T-48h,2026-02-03,red,2,2026-02-02,-1,led 1d
+naive_precip_threshold,30mm,T-48h,2026-02-05,orange,2,2026-02-05,0,match
+naive_precip_threshold,30mm,T-48h,2026-02-07,orange,2,2026-02-05,-2,led 2d
+naive_precip_threshold,30mm,T-72h,2026-01-16,informational,2,2026-01-31,15,lag 15d
+naive_precip_threshold,30mm,T-72h,2026-01-29,"red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",2,2026-01-31,2,lag 2d
+naive_precip_threshold,30mm,T-72h,2026-02-01,orange,2,2026-02-01,0,match
+naive_precip_threshold,30mm,T-72h,2026-02-02,red,2,2026-02-01,-1,led 1d
+naive_precip_threshold,30mm,T-72h,2026-02-03,red,2,2026-02-01,-2,led 2d
+naive_precip_threshold,30mm,T-72h,2026-02-05,orange,2,2026-02-01,-4,led 4d
+naive_precip_threshold,30mm,T-72h,2026-02-07,orange,2,2026-02-01,-6,led 6d

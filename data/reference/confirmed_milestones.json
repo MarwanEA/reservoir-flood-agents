@@ -1,0 +1,48 @@
+{
+  "description": "Dated timeline of the Oued El Makhazine dam crisis (Loukkos basin, Morocco, January-February 2026), built from the case-study section of the accompanying paper. Every figure here was already public before this research began, via named ministry and press statements. This file does not draw on or reproduce any restricted data - see DATA_AVAILABILITY.md.",
+  "dam": {
+    "name": "Oued El Makhazine",
+    "basin": "Loukkos",
+    "nominal_capacity_Mm3": 672.9
+  },
+  "milestones": [
+    {
+      "date": "2026-01-06",
+      "event": "Reservoir exceeds nominal capacity (672.9 Mm3) for the first time in the crisis.",
+      "source": "Salaheddine Dahbi (DG Hydraulique, Ministry of Equipment and Water), briefing reported by Medias24, 2026-02-04"
+    },
+    {
+      "date": "2026-01-24",
+      "event": "Operators open the left-bank bottom gate (VDF-RG); controlled releases escalate sharply.",
+      "source": "SNRT News, 2026-02-02"
+    },
+    {
+      "date": "2026-01-28",
+      "event": "Instantaneous peak inflow of 3,210 m3/s.",
+      "source": "Nizar Baraka (Minister of Equipment and Water), post-Conseil de gouvernement briefing, 2026-02-11, reported by Medi1News/Yabiladi/Dpress"
+    },
+    {
+      "date": "2026-02-04",
+      "event": "Storage at 988 Mm3, 146.85% of nominal capacity. Cumulative discharge since the start of releases reaches 372.9 Mm3.",
+      "source": "Salaheddine Dahbi (DG Hydraulique), briefing reported by Medias24 and Le Matin, 2026-02-04/05"
+    },
+    {
+      "date": "2026-02-09",
+      "event": "Instantaneous peak controlled outflow of 878 m3/s.",
+      "source": "Nizar Baraka, post-Conseil de gouvernement briefing, 2026-02-11"
+    },
+    {
+      "date": "2026-02-10",
+      "event": "Event peak: level 71.59 m NGM, storage approximately 1,117 Mm3, 166.2% of nominal capacity.",
+      "source": "Nizar Baraka, post-Conseil de gouvernement briefing, 2026-02-11"
+    }
+  ],
+  "additional_confirmed_figures": {
+    "evacuations": {"value": 108423, "as_of": "2026-02-04", "source": "Le Matin, 2026-02-05"},
+    "fatalities": [
+      {"count": 3, "cause": "landslide", "location": "Larache", "date": "2026-02-04"},
+      {"count": 4, "cause": "flash flood", "location": "Tetouan", "date": "2026-02-07 to 2026-02-08"}
+    ]
+  },
+  "usage_note": "These figures were made public by the Ministry of Equipment and Water through named press briefings before this research began. They are reproduced here as a machine-readable reference for the paper's case study, not sourced from or verified against any restricted dataset. Where a figure in this file differs slightly from a number reported elsewhere in press coverage, the value used here is the one cited in the paper, with its specific source given above."
+}

@@ -1,0 +1,34 @@
+{
+  "dam": {
+    "name": "Oued El Makhazine",
+    "basin": "Loukkos",
+    "commissioned": 1979,
+    "nominal_capacity_Mm3": 672.9,
+    "coordinates": {"lat": 34.94, "lon": -5.83}
+  },
+  "crisis_window": {
+    "start": "2026-01-14",
+    "end": "2026-02-08",
+    "note": "extended window to cover both precursor rainfall and both crisis peaks"
+  },
+  "confirmed_figures": {
+    "peak_fill_percent": {"value": 166.4, "date": "2026-02-10", "note": "Ministry briefing (Baraka, 2026-02-11) reports 166.2%, ~1,117 Mm3"},
+    "peak_inflow_m3s": 3210,
+    "peak_inflow_date": "2026-01-28",
+    "peak_controlled_outflow_m3s": 878,
+    "peak_controlled_outflow_date": "2026-02-09",
+    "cumulative_discharge_Mm3": {"value": 372.9, "as_of": "2026-02-04"},
+    "evacuations": {"value": 108423, "as_of": "2026-02-04", "note": "by province"},
+    "fatalities": [
+      {"count": 3, "cause": "landslide", "location": "Larache", "date": "2026-02-04"},
+      {"count": 4, "cause": "flash flood", "location": "Tetouan", "date": "2026-02-07 to 2026-02-08"}
+    ]
+  },
+  "sources": [
+    "Salaheddine Dahbi (DG Hydraulique), quoted in Medias24",
+    "Younes El Abdi, quoted in SNRT News, Le360, Le Matin",
+    "official maroc.ma Head of Government statement, 2026-02-12",
+    "Nizar Baraka (Minister of Equipment and Water), post-Conseil de gouvernement briefing 2026-02-11, quoted in Medi1News/Yabiladi/Dpress - source for peak_inflow_m3s (3210, 2026-01-28) and peak_controlled_outflow_m3s (878, 2026-02-09)"
+  ],
+  "provenance_note": "All figures here are confirmed/official per named sources above and are already public via press citation. Any number NOT in this file that appears in the pipeline's output (e.g. Agent 2's inflow estimate, Agent 3's routing simulation) is derived/illustrative, and must be labeled as such, not blended with these confirmed figures. See data/reference/confirmed_milestones.json for the same figures presented as a dated timeline, and DATA_AVAILABILITY.md for what this repository does and doesn't include."
+}

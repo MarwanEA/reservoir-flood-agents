@@ -1,0 +1,25 @@
+{
+  "expected_dam_lat": 34.94,
+  "expected_dam_lon": -5.83,
+  "start_date": "2026-01-14",
+  "end_date": "2026-02-08",
+  "model": "gfs_seamless",
+  "forecast_source": {
+    "endpoint": "previous-runs-api.open-meteo.com",
+    "requested_lat": 34.94,
+    "requested_lon": -5.83,
+    "returned_lat": 34.969086,
+    "returned_lon": -5.859375,
+    "elevation_m": 55.0,
+    "timezone": "Africa/Casablanca"
+  },
+  "observed_source": {
+    "endpoint": "archive-api.open-meteo.com",
+    "requested_lat": 34.94,
+    "requested_lon": -5.83,
+    "returned_lat": 34.973637,
+    "returned_lon": -5.8322754,
+    "elevation_m": 55.0,
+    "timezone": "Africa/Casablanca"
+  }
+}
