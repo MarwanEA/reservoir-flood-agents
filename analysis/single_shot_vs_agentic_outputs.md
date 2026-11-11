@@ -2,6 +2,29 @@
 
 Same underlying facts (2026-02-03, D0 lead time), two prompt designs. Not part of the evaluated pipeline; does not touch agents/, orchestrator.py, or run_log.json (read-only).
 
+## Run metadata
+
+```json
+{
+  "model_requested": "claude-opus-5-5",
+  "model_id_returned_prompt_A": [
+    "claude-haiku-5-5",
+    "claude-opus-5-5"
+  ],
+  "model_id_returned_prompt_B": [
+    "claude-haiku-5-5",
+    "claude-opus-5-5"
+  ],
+  "effort": "high",
+  "isolation": "--safe-mode",
+  "temperature": "CLI default",
+  "cli_version": "2.1.321 (Claude Code)",
+  "run_timestamp_utc": "2026-11-09T22:35:09.227670+00:00",
+  "session_id_A": "9b7f96a8-344a-42ec-8b9a-644b56428a85",
+  "session_id_B": "a0c846df-3807-45a4-b354-aa7747ad3445"
+}
+```
+
 ## Raw snapshot used (identical for both prompts)
 
 ```json
@@ -68,15 +91,9 @@ Write the rationale now.
 
 ### Output A
 
-Rationale below normal (operator doc, not chat filler).
+**Operator rationale: Oued El Makhazine dam, 2026-02-03 (D0 lead time)**
 
----
-
-**D0 Rationale — Oued El Makhazine Dam, 2026-02-03**
-
-Data QA passed. DERIVED pipeline output for 2026-02-03 (D0): forecast precipitation 29.8 mm drove a simulated inflow of 161.4 m³/s and a simulated reservoir fill of 67.1% of nominal capacity. Both reactive and anticipatory routing policies converge on the same simulated outflow, 5.0 m³/s — no divergence between strategies at this lead time. Agent 4's rate-of-rise flag TRIGGERED despite fill and outflow not being individually elevated, meaning the trigger is driven by rate of change rather than absolute level; Agent 5's regulatory check found no ceiling, floor, or ramp violations, so the simulated outflow is compliant. Recommendation: maintain current outflow policy while monitoring the rate-of-rise flag going forward.
-
-For context only — not what this date's simulation produced — CONFIRMED official/press-sourced figures show a real peak fill of 166.4% on 2026-02-10, real peak inflow of 3210 m³/s on 2026-01-28, and real peak controlled outflow of 878 m³/s on 2026-02-09, against nominal capacity 672.9 Mm³. These CONFIRMED extremes are far above the DERIVED D0 estimates and should not be blended with them; they illustrate that the situation escalated well beyond this pipeline's simplified D0 simulation in the days that followed.
+The input data passed quality checks. The pipeline's DERIVED estimate for 2026-02-03 is 29.8 mm of forecast precipitation, a simulated inflow of 161.4 m3/s and a simulated reservoir fill of 67.1% of nominal capacity. The reactive and anticipatory policies both produce the same simulated outflow of 5.0 m3/s, and the regulatory check found no ceiling, floor or ramp-rate violation. So the pipeline would recommend holding releases at 5.0 m3/s. However, Agent 4 TRIGGERED its rate-of-rise flag even though neither fill nor outflow was elevated, so the trend calls for close monitoring rather than a routine hold. For context only, the CONFIRMED official and press-sourced figures from other dates are much larger: a real peak inflow of 3210 m3/s on 2026-01-28, a real peak controlled outflow of 878 m3/s on 2026-02-09, and a real peak fill of 166.4% of the 672.9 Mm3 nominal capacity on 2026-02-10. This simplified research-prototype simulation should therefore not be read as a picture of actual conditions at the dam.
 
 ## Prompt B - single-shot (no agent framing, no CONFIRMED/DERIVED instruction)
 
@@ -103,14 +120,33 @@ What do you recommend?
 
 ### Output B
 
-Recommend: don't trust flat 5.0 m3/s hold today.
+**Don't act on today's model output. It is far off from what actually happened, and that gap is the main finding.**
 
-Why: rate-of-rise flag say inflow climbing fast, and real event history for this dam show Jan-28 peak inflow 3210 m3/s (huge) leading to Feb-10 peak level 166.4% capacity — overtop. Feb-9 peak outflow only 878 m3/s, meaning real operators ramped release hard in days before peak, not day-of. Today (Feb-3) sit early on that same rising limb, 67% full, still small release.
+## Why the model output can't be trusted
 
-Action:
-- Bump release above 5.0 m3/s now, within reg ramp-rate/ceiling/floor limits (check says room exist, no violations yet) — pre-release storage ahead of surge, not after.
-- Anticipatory policy matching current policy at 5.0 is a red flag itself — model likely under-responding to rate-of-rise signal. Override/blend: weight rate-of-rise flag higher than base policy output.
-- Increase monitoring cadence (inflow forecast refresh, gauge check) daily through Feb-10 window — real event peak hit fast (Jan28→Feb10, ~13 days).
-- Pre-stage downstream flood warnings given historical outcome reached 166% capacity — implies emergency spillway/overtop occurred last time. Don't repeat: start drawdown early while storage still has room (67%).
+| | Model (Feb 3) | Official record |
+|---|---|---|
+| Inflow | ~161 m³/s | Peaked at 3210 m³/s on Jan 28, six days earlier |
+| Storage | 67.1% | Reached 166.4% by Feb 10 |
+| Release | 5 m³/s | Rose to 878 m³/s by Feb 9 |
 
-Bottom line: today numbers alone look calm (no reg violation, low release ok), but paired w/ real historical trajectory this is the lead-in to a major flood event. Recommend proactive release increase now, not wait for policy to catch up.
+Six days after a peak of over 3000 m³/s, the reservoir couldn't have been at 67%. It was very likely already near or above full. So the model's starting storage is probably stale or wrong, and the inflow model badly underestimates runoff from a soaked catchment. 29.8 mm of rain on already saturated ground should produce much more than 161 m³/s.
+
+## What the record means for operations
+
+If this were a live decision, the situation called for flood-emergency handling, not 5 m³/s:
+
+- Check the real reservoir level and spillway state against observed data, not the model.
+- Raise releases toward the safe downstream channel capacity well before the reservoir peaks, and warn downstream communities early.
+- Hand the decision to the basin authority's dam operators. A simplified agent pipeline shouldn't be making this call.
+
+## Fixes to the pipeline
+
+1. **Feed in observed levels.** Reset storage from measured levels or official fill data every day. A model that drifts on its own will badly understate risk.
+2. **Account for wet ground.** Add soil-moisture or recent-rainfall terms, and recalibrate the inflow model against the Jan–Feb 2026 hydrograph.
+3. **Find out why the anticipatory policy still gives 5 m³/s.** It agrees exactly with the existing policy on a day flagged as high risk, so something is holding it back. Likely suspects are a ramp-rate limit stopping any increase from 5 m³/s, a hard clamp, or a minimum-release default that always applies. Log the policy's unclamped value next to the final one.
+4. **Make the regulatory check cover flood safety.** "No violations" is misleading here because it only checks outflow ceiling, floor and ramp rate. Add a rule that flags storage above the flood-control level with releases too low to handle the expected inflow.
+5. **Make the risk flag change the outcome.** Right now the rate-of-rise check flags elevated risk and the release stays the same. A flag should either raise releases or escalate to a human.
+6. **Check what the fill percentage is measured against.** 166.4% of nominal capacity means the official figure uses a different reference: a different capacity value, or storage above the normal maximum level counted as overflow. Make sure your percentage uses the same reference before comparing the two.
+
+If you'd like, I can look through the code here, starting with the release policy's clamping and ramp logic and how storage gets initialized, to find where the 5 m³/s and 67% values come from.

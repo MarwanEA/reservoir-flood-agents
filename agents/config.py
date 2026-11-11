@@ -2,8 +2,9 @@
 Shared paths and constants for the reservoir-agents pipeline.
 
 Every constant below is tagged CONFIRMED or ASSUMED:
-  - CONFIRMED: taken directly from data/reference/dam_parameters.json or
-    data/reference/dgm_bulletin_trail.json (official/press-sourced figures).
+  - CONFIRMED: taken directly from data/reference/dam_parameters.json
+    (official/press-sourced figures) or data/reference/dgm_bulletin_trail.json
+    (official DGM bulletins).
   - ASSUMED: not present in either reference file. Needed to make the
     rainfall-runoff transform (Agent 2) and routing/regulatory rules
     (Agents 3-5) runnable. Each has a one-line justification. These flow

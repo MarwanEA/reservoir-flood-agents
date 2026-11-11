@@ -7,18 +7,31 @@ Agent 2's inflow estimate, Agent 3's routing trajectory, Agent 4's risk
 flags, Agent 5's regulatory checks - for a given lead time, and calls
 Claude Code headless to produce a plain-language, operator-facing rationale.
 
-Calls `claude -p "<prompt>" --output-format json` via subprocess (NOT
---bare, which would skip subscription login and require separate API
-billing). If the call fails for any reason (auth, timeout, non-zero exit),
-the failure is recorded but does NOT crash the pipeline - the rest of the
-run_log (Agents 1-5's real numeric outputs) remains valid and usable even
-if the LLM narration step is unavailable.
+Calls `claude -p "<prompt>" --model <MODEL> --effort <EFFORT> --safe-mode --output-format json`
+via subprocess (NOT --bare, which would skip subscription login and require
+separate API billing). The model and effort are pinned below and recorded,
+with the model ID the CLI reports having used, in every run_log entry. The
+CLI has no temperature option, so temperature is recorded as "CLI default".
+--safe-mode (documented in `claude --help`) starts the child session with all
+user customizations disabled (hooks, installed plugins, CLAUDE.md, skills,
+MCP servers, output styles) while auth and model selection work normally, so
+the output does not depend on the operator's personal Claude Code setup.
+If the call fails for any reason (auth, timeout, non-zero exit), the failure
+is recorded but does NOT crash the pipeline - the rest of the run_log
+(Agents 1-5's real numeric outputs) remains valid and usable even if the LLM
+narration step is unavailable.
 """
+import datetime
 import json
 import shutil
 import subprocess
 
 from . import config
+
+MODEL = "claude-opus-5-5"   # passed as --model
+EFFORT = "high"             # passed as --effort (documented: low, medium, high, xhigh, max)
+TEMPERATURE = "CLI default"  # claude -p exposes no temperature setting
+ISOLATION = "--safe-mode"    # no user hooks/plugins/CLAUDE.md/skills in the child session; recorded as agent6_isolation
 
 
 def _build_prompt(lead_time: str, summary: dict) -> str:
@@ -52,12 +65,21 @@ time's simulation produced):
 Write the rationale now."""
 
 
+def cli_version() -> str:
+    try:
+        proc = subprocess.run([shutil.which("claude") or "claude", "--version"],
+                              capture_output=True, text=True, encoding="utf-8", timeout=30)
+        return proc.stdout.strip() or "unknown"
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        return f"unknown ({e})"
+
+
 def _call_claude_headless(prompt: str) -> dict:
     claude_path = shutil.which("claude") or "claude"
     try:
         proc = subprocess.run(
-            [claude_path, "-p", prompt, "--output-format", "json"],
-            capture_output=True, text=True, encoding="utf-8", timeout=180,
+            [claude_path, "-p", prompt, "--model", MODEL, "--effort", EFFORT, ISOLATION, "--output-format", "json"],
+            capture_output=True, text=True, encoding="utf-8", timeout=300,
         )
     except (subprocess.TimeoutExpired, FileNotFoundError) as e:
         return {"ok": False, "error": f"subprocess failed to run claude CLI: {e}"}
@@ -76,6 +98,33 @@ def _call_claude_headless(prompt: str) -> dict:
     return {"ok": True, "text": payload.get("result", ""), "raw": payload}
 
 
+def synthesize(lead_time: str, summary: dict, cli_ver: str) -> dict:
+    """One Agent 6 call for one lead time, returned as a run_log entry with provenance fields."""
+    result = _call_claude_headless(_build_prompt(lead_time, summary))
+    raw = result.get("raw") or {}
+    used = sorted((raw.get("modelUsage") or {}).keys())  # model IDs the CLI reports having used
+    entry = {
+        "status": "ok" if result["ok"] else "failed",
+        "rationale" if result["ok"] else "error": result["text"] if result["ok"] else result["error"],
+        "numeric_summary": summary,
+        "agent6_model_requested": MODEL,
+        "agent6_model_id_returned": used[0] if len(used) == 1 else used,
+        "agent6_effort": EFFORT,
+        "agent6_temperature": TEMPERATURE,
+        "agent6_isolation": ISOLATION,
+        "agent6_cli_version": cli_ver,
+        "agent6_run_timestamp_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "agent6_session_id": raw.get("session_id"),
+    }
+    if result["ok"]:
+        print(f"[Agent 6: Decision Synthesis] {lead_time}: rationale generated ({len(result['text'])} chars, "
+              f"model returned: {entry['agent6_model_id_returned']}).")
+    else:
+        print(f"[Agent 6: Decision Synthesis] {lead_time}: LLM call FAILED ({result['error']}). "
+              f"Numeric pipeline outputs for this lead time remain valid; only the narration is missing.")
+    return entry
+
+
 def run(state: dict) -> dict:
     routing_results = state["routing_results"]
     inflow_df = state["inflow_df"]
@@ -84,6 +133,7 @@ def run(state: dict) -> dict:
     qa_status = "PASSED" if state["qa_report"]["passed"] else "FAILED"
 
     syntheses = {}
+    cli_ver = cli_version()
     for lead_time in config.LEAD_TIMES:
         inflow_col = f"inflow_m3s_{lead_time}"
         peak_idx = inflow_df[inflow_col].idxmax()
@@ -116,16 +166,7 @@ def run(state: dict) -> dict:
             "regulatory_violations": f"{n_violations} rows with a constraint violation",
         }
 
-        prompt = _build_prompt(lead_time, summary)
-        result = _call_claude_headless(prompt)
-
-        if result["ok"]:
-            print(f"[Agent 6: Decision Synthesis] {lead_time}: rationale generated ({len(result['text'])} chars).")
-            syntheses[lead_time] = {"status": "ok", "rationale": result["text"], "numeric_summary": summary}
-        else:
-            print(f"[Agent 6: Decision Synthesis] {lead_time}: LLM call FAILED ({result['error']}). "
-                  f"Numeric pipeline outputs for this lead time remain valid; only the narration is missing.")
-            syntheses[lead_time] = {"status": "failed", "error": result["error"], "numeric_summary": summary}
+        syntheses[lead_time] = synthesize(lead_time, summary, cli_ver)
 
     state["synthesis"] = syntheses
     return state

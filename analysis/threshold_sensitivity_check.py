@@ -31,6 +31,7 @@ import pandas as pd
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUN_LOG_PATH = os.path.join(REPO_ROOT, "outputs", "run_log.json")
+BULLETIN_JSON = os.path.join(REPO_ROOT, "data", "reference", "dgm_bulletin_trail.json")  # read directly, not the run_log copy
 CSV_OUT = os.path.join(REPO_ROOT, "analysis", "threshold_sensitivity_results.csv")
 REPORT_OUT = os.path.join(REPO_ROOT, "analysis", "threshold_sensitivity_report.md")
 
@@ -52,7 +53,8 @@ def load_inputs():
     inflow_df = pd.DataFrame(run_log["agent2_inflow_forecast"]["daily_estimates"])
     inflow_df["date"] = pd.to_datetime(inflow_df["date"]).dt.date
     inflow_df = inflow_df.sort_values("date").reset_index(drop=True)
-    bulletins = run_log["dgm_bulletin_trail"]["bulletins"]
+    with open(BULLETIN_JSON, encoding="utf-8") as f:
+        bulletins = json.load(f)["bulletins"]
     return inflow_df, bulletins
 
 

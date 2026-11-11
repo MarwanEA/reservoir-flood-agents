@@ -1,6 +1,6 @@
 # reservoir-flood-agents
 
-[![DOI](https://zenodo.org/badge/1350198665.svg)](https://doi.org/10.5281/zenodo.22152127)
+[![DOI](https://zenodo.org/badge/1350198665.svg)](https://doi.org/10.5281/zenodo.22152126)
 
 Code for "A Multi-Agent AI Decision-Support Framework for Reservoir Flood Operations: The 2026 Oued El Makhazine Crisis, Morocco," submitted to CAISN 2026.
 
@@ -12,7 +12,8 @@ The paper proposes a six-agent pipeline for reservoir flood-release decisions an
 - `orchestrator.py`, `run_case_study.py` - LangGraph orchestration and the script that runs the full case study and writes `outputs/run_log.json`.
 - `evaluate_vs_dgm.py` - builds the comparison between the pipeline's risk flags and the regional weather-alert timeline (Figure 2 in the paper).
 - `backfill_agent6.py` - regenerates Agent 6's rationale text without re-running Agents 1-5.
-- `analysis/` - three standalone checks, kept separate from the evaluated pipeline: a basin-average-rainfall forcing check, a rate-of-rise threshold sensitivity check, and a single-shot-vs-agentic prompt comparison.
+- `rerun_agent6_from_log.py` - reruns only Agent 6 from the Agent 2-5 results already stored in `outputs/run_log.json`. It keeps the replaced rationale under `agent6_rationale_previous`, records the model, effort, isolation and CLI version for each lead time, and leaves every other section of the log unchanged.
+- `analysis/` - four standalone checks, kept separate from the evaluated pipeline: a basin-average-rainfall forcing check, a rate-of-rise threshold sensitivity check, a single-shot-vs-agentic prompt comparison, and `check_agent6.py`, which checks the Agent 6 rationales (sentence count, numbers against the input payload, CONFIRMED/DERIVED labels) and writes `analysis/agent6_check_report.md`.
 - `data/public/` - archived GFS forecast and ERA5-based observed precipitation at the dam's coordinates, pulled from Open-Meteo, and the script that fetched them.
 - `data/reference/` - dam parameters, the regional weather-alert bulletin timeline, and a dated timeline of confirmed crisis milestones.
 - `outputs/` - the pipeline's own log for the case-study run and the comparison figure.
@@ -20,6 +21,8 @@ The paper proposes a six-agent pipeline for reservoir flood-release decisions an
 ## Running it
 
 Needs Python 3.11 or newer (developed on 3.13) and, for Agent 6 only, a Claude Code subscription. Agents 1-5 need neither an API key nor Claude Code.
+
+Agent 6 is pinned to `claude-opus-5-5` at effort `high` and runs with `--safe-mode`, so your own hooks, plugins and CLAUDE.md stay out of the call. That needs Claude Code 2.1.280 or newer (the outputs here were generated with 2.1.321). `claude -p` has no temperature setting, so temperature is the CLI default.
 
 ```
 pip install -r requirements.txt
@@ -32,11 +35,12 @@ This runs Agents 1-5 on the archived weather data in `data/public/` and writes `
 python backfill_agent6.py
 ```
 
-The `analysis/` scripts don't depend on the pipeline or on each other:
+The `analysis/` scripts don't depend on each other, and none of them runs the pipeline (`check_agent6.py` only imports Agent 6's prompt builder to rebuild each lead time's input):
 
 ```
 python analysis/threshold_sensitivity_check.py
 python analysis/single_shot_vs_agentic_check.py
+python analysis/check_agent6.py
 ```
 
 `analysis/step5_basin_rainfall_forcing_check.py` needs a restricted input file that isn't in this repository. See Data availability below.
@@ -55,4 +59,4 @@ See DATA_AVAILABILITY.md for the full breakdown and how to request the restricte
 
 If you use this code, cite the paper. See CITATION.cff.
 
-Zenodo DOI: [https://doi.org/10.5281/zenodo.22152127](https://doi.org/10.5281/zenodo.22152127)
+Zenodo DOI: [https://doi.org/10.5281/zenodo.22152126](https://doi.org/10.5281/zenodo.22152126)

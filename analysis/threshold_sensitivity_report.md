@@ -8,92 +8,92 @@ Days led (negative)/lagged (positive) vs. each DGM bulletin, by lead time. 'matc
 ### Multiplier 2.0x
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 6d | lag 6d | lag 5d |
-| 2026-01-29 | red (Chefchaouen), o | lag 1d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | lag 8d | lag 6d | lag 6d | lag 5d |
+| 2026-01-29 | orange | lag 1d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | lag 1d | match | match | match |
 | 2026-02-02 | red | match | match | match | led 1d |
-| 2026-02-03 | red | match | led 1d | led 1d | led 2d |
-| 2026-02-05 | orange | led 2d | lag 1d | led 3d | led 4d |
-| 2026-02-07 | orange | match | led 1d | led 5d | led 6d |
+| 2026-02-03 | orange | match | led 1d | led 1d | led 2d |
+| 2026-02-04 | orange | led 1d | led 2d | led 2d | led 3d |
+| 2026-02-06 | orange | lag 1d | match | led 4d | led 5d |
 
 ### Multiplier 2.5x
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 6d | lag 7d | lag 5d |
-| 2026-01-29 | red (Chefchaouen), o | lag 1d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | lag 8d | lag 6d | lag 7d | lag 5d |
+| 2026-01-29 | orange | lag 1d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | lag 1d | match | match | match |
 | 2026-02-02 | red | match | match | match | led 1d |
-| 2026-02-03 | red | match | led 1d | led 1d | led 2d |
-| 2026-02-05 | orange | led 2d | lag 1d | led 3d | led 4d |
-| 2026-02-07 | orange | led 4d | led 1d | led 5d | led 6d |
+| 2026-02-03 | orange | match | led 1d | led 1d | led 2d |
+| 2026-02-04 | orange | led 1d | led 2d | led 2d | led 3d |
+| 2026-02-06 | orange | led 3d | match | led 4d | led 5d |
 
 ### Multiplier 3.0x
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 6d | lag 7d | lag 5d |
-| 2026-01-29 | red (Chefchaouen), o | led 5d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | lag 8d | lag 6d | lag 7d | lag 5d |
+| 2026-01-29 | orange | led 5d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | lag 2d | match | match | match |
 | 2026-02-02 | red | lag 1d | match | led 1d | led 1d |
-| 2026-02-03 | red | match | led 1d | led 2d | led 2d |
-| 2026-02-05 | orange | led 2d | led 3d | led 4d | led 4d |
-| 2026-02-07 | orange | led 4d | led 5d | led 6d | led 6d |
+| 2026-02-03 | orange | match | led 1d | led 2d | led 2d |
+| 2026-02-04 | orange | led 1d | led 2d | led 3d | led 3d |
+| 2026-02-06 | orange | led 3d | led 4d | led 5d | led 5d |
 
 ### Multiplier 3.5x
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 6d | lag 7d | lag 5d |
-| 2026-01-29 | red (Chefchaouen), o | led 5d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | lag 8d | lag 6d | lag 7d | lag 5d |
+| 2026-01-29 | orange | led 5d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | lag 2d | match | match | led 1d |
 | 2026-02-02 | red | lag 1d | match | led 1d | led 2d |
-| 2026-02-03 | red | match | led 1d | led 2d | led 3d |
-| 2026-02-05 | orange | led 2d | led 3d | led 4d | led 5d |
-| 2026-02-07 | orange | led 4d | led 5d | led 6d | led 7d |
+| 2026-02-03 | orange | match | led 1d | led 2d | led 3d |
+| 2026-02-04 | orange | led 1d | led 2d | led 3d | led 4d |
+| 2026-02-06 | orange | led 3d | led 4d | led 5d | led 6d |
 
 ### Multiplier 4.0x
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 6d | lag 7d | lag 5d |
-| 2026-01-29 | red (Chefchaouen), o | led 5d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | lag 8d | lag 6d | lag 7d | lag 5d |
+| 2026-01-29 | orange | led 5d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | led 8d | match | match | led 1d |
 | 2026-02-02 | red | led 9d | match | led 1d | led 2d |
-| 2026-02-03 | red | led 10d | led 1d | led 2d | led 3d |
-| 2026-02-05 | orange | led 12d | led 3d | led 4d | led 5d |
-| 2026-02-07 | orange | led 14d | led 5d | led 6d | led 7d |
+| 2026-02-03 | orange | led 10d | led 1d | led 2d | led 3d |
+| 2026-02-04 | orange | led 11d | led 2d | led 3d | led 4d |
+| 2026-02-06 | orange | led 13d | led 4d | led 5d | led 6d |
 
 ### Multiplier 5.0x
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 6d | lag 15d | lag 5d |
-| 2026-01-29 | red (Chefchaouen), o | led 5d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | lag 8d | lag 6d | lag 15d | lag 5d |
+| 2026-01-29 | orange | led 5d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | led 8d | match | led 1d | led 1d |
 | 2026-02-02 | red | led 9d | match | led 2d | led 2d |
-| 2026-02-03 | red | led 10d | led 1d | led 3d | led 3d |
-| 2026-02-05 | orange | led 12d | led 3d | led 5d | led 5d |
-| 2026-02-07 | orange | led 14d | led 5d | led 7d | led 7d |
+| 2026-02-03 | orange | led 10d | led 1d | led 3d | led 3d |
+| 2026-02-04 | orange | led 11d | led 2d | led 4d | led 4d |
+| 2026-02-06 | orange | led 13d | led 4d | led 6d | led 6d |
 
 ## 2. Naive fixed-precipitation-threshold baseline, full DGM comparison
 
 ### Threshold 20mm
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | match | lag 6d | lag 5d | led 2d |
-| 2026-01-29 | red (Chefchaouen), o | lag 4d | lag 3d | lag 2d | lag 1d |
+| 2026-01-16 | orange | match | lag 6d | lag 5d | led 2d |
+| 2026-01-29 | orange | lag 4d | lag 3d | lag 2d | lag 1d |
 | 2026-02-01 | orange | lag 1d | match | match | match |
 | 2026-02-02 | red | match | match | match | led 1d |
-| 2026-02-03 | red | match | led 1d | led 1d | lag 1d |
-| 2026-02-05 | orange | led 1d | lag 1d | match | led 1d |
-| 2026-02-07 | orange | match | led 1d | led 2d | led 3d |
+| 2026-02-03 | orange | match | led 1d | led 1d | lag 1d |
+| 2026-02-04 | orange | match | led 2d | lag 1d | match |
+| 2026-02-06 | orange | lag 1d | match | led 1d | led 2d |
 
 ### Threshold 30mm
 | DGM bulletin | Level | D0 | T-24h | T-48h | T-72h |
 |---|---|---|---|---|---|
-| 2026-01-16 | informational | lag 8d | lag 21d | lag 17d | lag 15d |
-| 2026-01-29 | red (Chefchaouen), o | led 5d | lag 8d | lag 4d | lag 2d |
+| 2026-01-16 | orange | lag 8d | lag 21d | lag 17d | lag 15d |
+| 2026-01-29 | orange | led 5d | lag 8d | lag 4d | lag 2d |
 | 2026-02-01 | orange | lag 6d | lag 5d | lag 1d | match |
 | 2026-02-02 | red | lag 5d | lag 4d | match | led 1d |
-| 2026-02-03 | red | lag 4d | lag 3d | led 1d | led 2d |
-| 2026-02-05 | orange | lag 2d | lag 1d | match | led 4d |
-| 2026-02-07 | orange | match | led 1d | led 2d | led 6d |
+| 2026-02-03 | orange | lag 4d | lag 3d | led 1d | led 2d |
+| 2026-02-04 | orange | lag 3d | lag 2d | lag 1d | led 3d |
+| 2026-02-06 | orange | lag 1d | match | led 1d | led 5d |
 
 ## 3. Focused comparison: the Feb 1-3 cluster (the paper's headline claim)
 

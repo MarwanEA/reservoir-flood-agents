@@ -81,7 +81,7 @@ def main():
             **state["dam_params"],
         },
         "dgm_bulletin_trail": {
-            "provenance": "CONFIRMED (press-sourced) - data/reference/dgm_bulletin_trail.json, verbatim, "
+            "provenance": "CONFIRMED (official DGM bulletins) - data/reference/dgm_bulletin_trail.json, verbatim, "
                            "ground truth for the evaluation section below",
             **state["dgm_bulletins"],
         },

@@ -29,10 +29,18 @@ Output: analysis/single_shot_vs_agentic_outputs.md (both full outputs,
 side by side) - a source for one paragraph and possibly a short quote in
 the paper, not a new evaluation section.
 """
+import datetime
 import json
 import os
 import shutil
 import subprocess
+
+# Same pinned model, effort and isolation as agents/agent6_synthesis.py (keep in sync). claude -p has
+# no temperature option, so temperature is recorded as "CLI default". --safe-mode keeps the operator's
+# personal hooks, plugins and CLAUDE.md out of the child session.
+MODEL = "claude-opus-5-5"
+EFFORT = "high"
+ISOLATION = "--safe-mode"
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RUN_LOG_PATH = os.path.join(REPO_ROOT, "outputs", "run_log.json")
@@ -136,8 +144,8 @@ def call_claude_headless(prompt: str) -> dict:
     claude_path = shutil.which("claude") or "claude"
     try:
         proc = subprocess.run(
-            [claude_path, "-p", prompt, "--output-format", "json"],
-            capture_output=True, text=True, encoding="utf-8", timeout=180,
+            [claude_path, "-p", prompt, "--model", MODEL, "--effort", EFFORT, ISOLATION, "--output-format", "json"],
+            capture_output=True, text=True, encoding="utf-8", timeout=300,
         )
     except (subprocess.TimeoutExpired, FileNotFoundError) as e:
         return {"ok": False, "error": f"subprocess failed: {e}"}
@@ -149,7 +157,16 @@ def call_claude_headless(prompt: str) -> dict:
         return {"ok": False, "error": f"bad JSON: {e}; raw={proc.stdout[:500]}"}
     if payload.get("is_error"):
         return {"ok": False, "error": f"claude CLI error: {payload.get('result')}"}
-    return {"ok": True, "text": payload.get("result", "")}
+    return {"ok": True, "text": payload.get("result", ""),
+            "models_used": sorted((payload.get("modelUsage") or {}).keys()), "session_id": payload.get("session_id")}
+
+
+def cli_version() -> str:
+    try:
+        return subprocess.run([shutil.which("claude") or "claude", "--version"], capture_output=True,
+                              text=True, encoding="utf-8", timeout=30).stdout.strip() or "unknown"
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        return f"unknown ({e})"
 
 
 def main():
@@ -165,11 +182,23 @@ def main():
     result_b = call_claude_headless(prompt_b)
     print("  ->", "ok" if result_b["ok"] else f"FAILED: {result_b['error']}")
 
+    if not (result_a["ok"] and result_b["ok"]):
+        print("A call failed; the existing outputs file was NOT overwritten.")
+        return
+
+    meta = {
+        "model_requested": MODEL,
+        "model_id_returned_prompt_A": result_a["models_used"], "model_id_returned_prompt_B": result_b["models_used"],
+        "effort": EFFORT, "isolation": ISOLATION, "temperature": "CLI default", "cli_version": cli_version(),
+        "run_timestamp_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "session_id_A": result_a["session_id"], "session_id_B": result_b["session_id"],
+    }
     lines = [
         "# Single-shot vs. agentic prompt comparison - standalone check\n",
         f"\nSame underlying facts ({TARGET_DATE}, {TARGET_LEAD_TIME} lead time), two prompt "
         "designs. Not part of the evaluated pipeline; does not touch agents/, orchestrator.py, "
         "or run_log.json (read-only).\n",
+        "\n## Run metadata\n\n```json\n" + json.dumps(meta, indent=2) + "\n```\n",
         "\n## Raw snapshot used (identical for both prompts)\n\n```json\n" + json.dumps(snapshot, indent=2) + "\n```\n",
         "\n## Prompt A - agentic (explicit CONFIRMED/DERIVED separation instruction)\n",
         "\n<details><summary>Full prompt text</summary>\n\n```\n" + prompt_a + "\n```\n</details>\n",

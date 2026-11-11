@@ -83,7 +83,7 @@
       "peak_fill_percent_PRIOR_VALUE": {
         "value": 159,
         "date": "2026-02-01",
-        "note": "corrected 2026-08-28: no source among 9 independently checked ministry/press statements supports 159% for any date; see data/abhl_real/ABHL_data_reconciliation_memo.md section 2"
+        "note": "corrected 2026-08-28: no source among 9 independently checked ministry/press statements supports 159% for any date; the underlying ABHL records and the reconciliation memo are not included in this repository"
       },
       "peak_inflow_m3s": 3210,
       "peak_inflow_date": "2026-01-28",
@@ -123,79 +123,93 @@
       "Younes El Abdi, quoted in SNRT News, Le360, Le Matin",
       "official maroc.ma Head of Government statement, 2026-02-12",
       "Nizar Baraka (Minister of Equipment and Water), post-Conseil de gouvernement briefing 2026-02-11, quoted in Medi1News/Yabiladi/Dpress - source for peak_inflow_m3s (3210, 2026-01-28) and peak_controlled_outflow_m3s (878, 2026-02-09)",
-      "ABHL (Agence du Bassin Hydraulique du Loukkos) daily bilan and rainfall-station records, received directly by the authors 2026-08-27 - cross-validates the press-reported figures above to within ~0.01-0.2 percentage points; see data/abhl_real/ABHL_data_reconciliation_memo.md"
+      "ABHL (Agence du Bassin Hydraulique du Loukkos) daily bilan and rainfall-station records, received directly by the authors 2026-08-27 - cross-validates the press-reported figures above to within ~0.01-0.2 percentage points; the underlying ABHL records and the reconciliation memo are not included in this repository"
     ],
     "provenance_note": "All figures here are confirmed/official per named sources above. Any number NOT in this file that appears in the pipeline's output (e.g. Agent 2's inflow estimate, Agent 3's routing simulation) is illustrative/derived, and must be labeled as such in the paper, not blended with these confirmed figures."
   },
   "dgm_bulletin_trail": {
-    "provenance": "CONFIRMED (press-sourced) - data/reference/dgm_bulletin_trail.json, verbatim, ground truth for the evaluation section below",
-    "description": "DGM (Direction Generale de la Meteorologie, Morocco) weather alert bulletins covering the Jan-Feb 2026 Oued El Makhazine crisis window. Sourced from press citations of the bulletins, not the raw bulletin graphics themselves. Use as ground-truth to compare against what the pipeline (Agent 2) would have flagged and when.",
+    "provenance": "CONFIRMED (official DGM bulletins) - data/reference/dgm_bulletin_trail.json, verbatim, ground truth for the evaluation section below",
+    "description": "DGM (Direction Generale de la Meteorologie, Morocco) weather alert bulletins covering the Jan-Feb 2026 Oued El Makhazine crisis window. Each entry is an official DGM bulletin, read on 2026-11-09 from DGM's own bulletin image or posted text. Seven bulletins are used as the evaluation reference. 'date' is the issue date and 'time' the issue time (GMT) printed on the bulletin; 'level', 'forecast_mm' and 'valid_period' are for Larache province (rain section). Use as ground-truth to compare against what the pipeline (Agent 2) would have flagged and when.",
     "bulletins": [
       {
         "date": "2026-01-16",
-        "level": "informational",
-        "region": "northern provinces incl. Larache",
+        "time": "12:04 GMT",
+        "bulletin_no": "2026/14",
+        "level": "orange",
+        "region": "Larache",
         "forecast_mm": "20-40",
-        "valid_period": "2026-01-16 to 2026-01-19",
-        "source": "Medias24",
-        "note": "earliest precursor signal, ~8 days before releases began Jan 24"
+        "valid_period": "2026-01-16 18:00 to 2026-01-17 18:00",
+        "source": "DGM bulletin 2026/14 (official)",
+        "note": "first bulletin of the January-February chain naming Larache"
       },
       {
         "date": "2026-01-29",
-        "level": "red (Chefchaouen), orange (Al Hoceima/Larache and surrounding provinces)",
-        "region": "Chefchaouen, Al Hoceima, Larache",
-        "forecast_mm": "90-120 (Chefchaouen); 60-90 (Al Hoceima/Larache)",
-        "valid_period": "2026-01-29 to 2026-01-30",
-        "source": "le360"
+        "time": "10:18 GMT",
+        "bulletin_no": "2026/29",
+        "level": "orange",
+        "region": "Larache",
+        "forecast_mm": "60-90",
+        "valid_period": "2026-01-29 11:00 to 2026-01-30 18:00",
+        "source": "DGM bulletin 2026/29 (official)",
+        "note": "updates 2026/28; first red of the episode, but for Chefchaouen only (90-120 mm), not Larache"
       },
       {
         "date": "2026-02-01",
+        "time": "10:30 GMT",
+        "bulletin_no": "2026/32",
         "level": "orange",
-        "region": "multiple incl. Larache",
-        "forecast_mm": null,
-        "hazard": "wind, snow, rain",
-        "valid_period": "2026-02-01 to 2026-02-03",
-        "source": "Medi1News",
-        "note": "precursor bulletin ahead of the Feb 4 peak"
+        "region": "Larache",
+        "forecast_mm": "50-80",
+        "valid_period": "2026-02-02 06:00 to 2026-02-03 12:00",
+        "source": "DGM bulletin 2026/32 (official)",
+        "note": "updates 2026/31"
       },
       {
         "date": "2026-02-02",
-        "time": "11:32",
-        "level": "red",
-        "region": "7 provinces incl. Larache",
-        "forecast_mm": "100-150",
-        "valid_period": "2026-02-04 00h-23h",
-        "source": "Hespress, H24Info, Maroc Hebdo",
-        "note": "explicitly labeled 'bulletin actualise' (updated bulletin) by press"
-      },
-      {
-        "date": "2026-02-03",
+        "time": "10:32 GMT",
+        "bulletin_no": "2026/33",
         "level": "red",
         "region": "Larache",
         "forecast_mm": "100-150",
-        "valid_period": "2026-02-04",
-        "source": "Telquel, CNEWS/AFP",
-        "note": "press explicitly ties this to risque de crue majeure du Loukkos; quotes Larache council president Abdelmoumen Sebihi on inflows exceeding seuils habituels"
+        "valid_period": "2026-02-04 00:00 to 2026-02-04 23:00",
+        "source": "DGM bulletin 2026/33 (official)",
+        "note": "only red for Larache in the episode; the same bulletin also has orange 40-80 mm for 2026-02-02 10:30 to 2026-02-03 12:00; confirmed by the marocmeteo vigilance map of 2026-02-02 10:57 GMT"
       },
       {
-        "date": "2026-02-05",
+        "date": "2026-02-03",
+        "time": "10:03 GMT",
+        "bulletin_no": "2026/34",
         "level": "orange",
-        "region": "unspecified, incl. Larache area",
-        "forecast_mm": "60-90",
-        "valid_period": "2026-02-05 to 2026-02-06 (Thu-Fri)",
-        "source": "Challenge.ma"
+        "region": "Larache",
+        "forecast_mm": "60-100",
+        "valid_period": "2026-02-03 12:00 to 2026-02-04 23:00",
+        "source": "DGM bulletin 2026/34 (official)",
+        "note": "Larache downgraded from red to orange; red stays only for Chefchaouen and Tetouan; confirmed by the marocmeteo vigilance map of 2026-02-03 10:10 GMT"
       },
       {
-        "date": "2026-02-07",
+        "date": "2026-02-04",
+        "time": "18:18 GMT",
+        "bulletin_no": "2026/35",
         "level": "orange",
-        "region": "incl. Larache",
-        "forecast_mm": "30-40",
-        "valid_period": "2026-02-07 to 2026-02-08 (Fri-Sun)",
-        "source": "Medias24",
-        "note": "coincides with the second fatal incident (flash flood, Tetouan, Feb 7-8)"
+        "region": "Larache",
+        "forecast_mm": "40-60",
+        "valid_period": "2026-02-05 12:00 to 2026-02-06 12:00",
+        "source": "DGM bulletin 2026/35 (official)",
+        "note": "issued 2026-02-04, reported by the press on 2026-02-05"
+      },
+      {
+        "date": "2026-02-06",
+        "time": "11:28 GMT",
+        "bulletin_no": "2026/37",
+        "level": "orange",
+        "region": "Larache",
+        "forecast_mm": "30-40; 40-70",
+        "valid_period": "2026-02-06 12:00 to 2026-02-08 06:00",
+        "source": "DGM bulletin 2026/37 (official)",
+        "note": "updates 2026/36; two windows: 30-40 mm 2026-02-06 12:00 to 2026-02-07 06:00 and 40-70 mm 2026-02-07 12:00 to 2026-02-08 06:00; issued 2026-02-06, reported by the press on 2026-02-07"
       }
     ],
-    "usage_note": "Do not cite DGM as the data source for the pipeline's own forecasts (Agent 2 uses independent open archives - GFS/ECMWF/ARPEGE via Open-Meteo). This file is for comparing the pipeline's flagged dates against DGM's real, independently-issued alert timeline in the evaluation section."
+    "usage_note": "Do not cite DGM as the data source for the pipeline's own forecasts (Agent 2 uses independent open archives - GFS/ECMWF/ARPEGE via Open-Meteo). This file is for comparing the pipeline's flagged dates against DGM's real, independently-issued alert timeline in the evaluation section. Dates are issue dates, which is the comparable quantity for flag availability dates."
   },
   "design_decisions": [
     {
@@ -7562,7 +7576,7 @@
     "by_lead_time": {
       "D0": {
         "status": "ok",
-        "rationale": "Rationale text below \u2014 normal prose, since it's a work product, not chat filler.\n\n---\n\n**D0 Forecast Rationale \u2014 Oued El Makhazine, valid window early Feb 2026 crisis**\n\nAt this lead time (D0), the pipeline's DERIVED simulation projected a peak inflow of 205.7 m3/s on 2026-02-07, driving reservoir fill to a simulated peak of 73.9% of nominal capacity (672.9 Mm3, CONFIRMED). Both anticipatory and reactive release policies converged on the same simulated peak outflow of 5.0 m3/s, so the pipeline found no differentiating benefit between the two strategies at this lead time. Agent 4 flagged elevated rate-of-rise risk as early as 2026-01-24 (0-day lead), based on a DERIVED estimate of 520.37x baseline inflow. Agent 5 recorded zero regulatory constraint violations in this DERIVED simulation run. Note that these DERIVED figures are a simplified estimate and diverge sharply from the CONFIRMED real event: official/press-sourced data show real peak inflow reached 3210 m3/s (2026-01-28), real peak fill hit 166.4% (2026-02-10), and real peak controlled outflow reached 878 m3/s (2026-02-09) \u2014 none of which the D0 simulation anticipated.",
+        "rationale": "**D0 decision rationale: Oued El Makhazine (research prototype, not for live operations)**\n\nInput data passed QA. At this lead time the pipeline raised its rate-of-rise elevated-risk flag for 2026-01-24, with inflow at 520.37x baseline, but the information was only available that same day (0d lead), so it gave same-day awareness rather than advance warning. In the pipeline's own simplified estimate (DERIVED, illustrative only), inflow peaked at 205.7 m3/s on 2026-02-07, the reservoir filled to 73.9% of nominal capacity, both the anticipatory and reactive policies released at most 5.0 m3/s, and no regulatory violations were found, so at D0 the two policies gave the same result and no extra pre-release was recommended. The official and press-reported record (CONFIRMED) shows a much more severe event: inflow peaked at 3210 m3/s on 2026-01-28, fill reached 166.4% of the 672.9 Mm3 nominal capacity on 2026-02-10, and controlled outflow reached 878 m3/s on 2026-02-09. Because the DERIVED simulation greatly underestimates the CONFIRMED event, its low releases and zero violations do not show the reservoir was safe. Operators should treat the rate-of-rise flag as the useful signal and the simulated volumes as illustrative only.",
         "numeric_summary": {
           "qa_status": "PASSED",
           "peak_inflow_m3s": 205.72314208130575,
@@ -7572,11 +7586,37 @@
           "peak_outflow_reactive_m3s": 5.0,
           "first_flag_summary": "first triggered for valid-date 2026-01-24 (520.37x baseline inflow), information available on 2026-01-24 (0d lead)",
           "regulatory_violations": "0 rows with a constraint violation"
-        }
+        },
+        "agent6_model_requested": "claude-opus-5-5",
+        "agent6_model_id_returned": [
+          "claude-haiku-5-5",
+          "claude-opus-5-5"
+        ],
+        "agent6_effort": "high",
+        "agent6_temperature": "CLI default",
+        "agent6_isolation": "--safe-mode",
+        "agent6_cli_version": "2.1.321 (Claude Code)",
+        "agent6_run_timestamp_utc": "2026-11-09T22:33:37.779748+00:00",
+        "agent6_session_id": "f59d97dd-9ccb-4d36-ab85-517c7642428c",
+        "agent6_rationale_previous": "**D0 lead-time rationale**\n\nData QA passed. The pipeline's rate-of-rise check first flagged elevated risk for 2026-01-24, with inflow at 520.37x baseline, but this information only became available on 2026-01-24 itself (0-day lead), so it gave no advance warning. In this pipeline's simplified DERIVED simulation, inflow peaked at 205.7 m3/s on 2026-02-07 and the reservoir reached 73.9% of nominal capacity, with no regulatory violations. Because both the anticipatory and reactive policies released at most 5.0 m3/s, the simulation would not have recommended raising releases. These DERIVED figures fall far short of the CONFIRMED official and press-sourced record, which shows a real inflow peak of 3210 m3/s on 2026-01-28, a real fill of 166.4% of the 672.9 Mm3 nominal capacity on 2026-02-10, and a real controlled outflow peak of 878 m3/s on 2026-02-09, so the simulation badly underestimated this event and does not show that low releases would have been enough.",
+        "agent6_previous_run": {
+          "agent6_isolation": null,
+          "agent6_model_requested": "claude-opus-5-5",
+          "agent6_model_id_returned": [
+            "claude-haiku-5-5",
+            "claude-opus-5-5"
+          ],
+          "agent6_effort": "high",
+          "agent6_temperature": "CLI default",
+          "agent6_cli_version": "2.1.321 (Claude Code)",
+          "agent6_run_timestamp_utc": "2026-11-09T22:14:14.357852+00:00",
+          "agent6_session_id": "1636b877-b8fb-4e40-ba5c-410446310cf3"
+        },
+        "agent6_rationale_before_previous": "Rationale text below \u2014 normal prose, since it's a work product, not chat filler.\n\n---\n\n**D0 Forecast Rationale \u2014 Oued El Makhazine, valid window early Feb 2026 crisis**\n\nAt this lead time (D0), the pipeline's DERIVED simulation projected a peak inflow of 205.7 m3/s on 2026-02-07, driving reservoir fill to a simulated peak of 73.9% of nominal capacity (672.9 Mm3, CONFIRMED). Both anticipatory and reactive release policies converged on the same simulated peak outflow of 5.0 m3/s, so the pipeline found no differentiating benefit between the two strategies at this lead time. Agent 4 flagged elevated rate-of-rise risk as early as 2026-01-24 (0-day lead), based on a DERIVED estimate of 520.37x baseline inflow. Agent 5 recorded zero regulatory constraint violations in this DERIVED simulation run. Note that these DERIVED figures are a simplified estimate and diverge sharply from the CONFIRMED real event: official/press-sourced data show real peak inflow reached 3210 m3/s (2026-01-28), real peak fill hit 166.4% (2026-02-10), and real peak controlled outflow reached 878 m3/s (2026-02-09) \u2014 none of which the D0 simulation anticipated."
       },
       "T-24h": {
         "status": "ok",
-        "rationale": "DERIVED simulation (T-24h lead, illustrative only): peak inflow 171.6 m\u00b3/s on 2026-02-07, reservoir fill peaking at 68.4% of nominal capacity, anticipatory and reactive outflow policies converging on same 5.0 m\u00b3/s peak release. Agent 4 flagged elevated rate-of-rise risk 1 day ahead of the 2026-01-23 valid date (200.23x baseline inflow spike). Agent 5 found 0 regulatory constraint violations across the run, so no policy override needed at this lead time. For context only, CONFIRMED official figures show a much larger real event (peak fill 166.4% on 2026-02-10, peak inflow 3210 m\u00b3/s on 2026-01-28, peak controlled outflow 878 m\u00b3/s on 2026-02-09) \u2014 these are NOT what this T-24h simulation produced, and shouldn't be merged with the DERIVED numbers above.",
+        "rationale": "**Decision rationale: T-24h lead time (research prototype, not for live operations)**\n\nInput data passed QA. The pipeline's rate-of-rise check (Agent 4) raised an elevated-risk flag on 2026-01-22 for valid-date 2026-01-23, with inflow at 200.23x baseline. That gave 1 day of warning. In the pipeline's own simplified simulation (DERIVED, illustrative only), inflow peaked at 171.6 m3/s on 2026-02-07 and the reservoir reached 68.4% of nominal capacity. Peak outflow was 5.0 m3/s under both the anticipatory and the reactive policy, and no regulatory constraint was violated. Because both policies produced the same outflow, the pipeline would not have recommended pre-releases at this lead time beyond responding to the early-warning flag. The official record (CONFIRMED, context only) is far more severe than the simulation. Real inflow peaked at 3210 m3/s on 2026-01-28, fill reached 166.4% of the 672.9 Mm3 nominal capacity on 2026-02-10, and controlled outflow peaked at 878 m3/s on 2026-02-09. So at this lead time the simulated estimates greatly understated the real event and should not be treated as a reliable picture of the crisis.",
         "numeric_summary": {
           "qa_status": "PASSED",
           "peak_inflow_m3s": 171.5584658608322,
@@ -7586,11 +7626,37 @@
           "peak_outflow_reactive_m3s": 5.0,
           "first_flag_summary": "first triggered for valid-date 2026-01-23 (200.23x baseline inflow), information available on 2026-01-22 (1d lead)",
           "regulatory_violations": "0 rows with a constraint violation"
-        }
+        },
+        "agent6_model_requested": "claude-opus-5-5",
+        "agent6_model_id_returned": [
+          "claude-haiku-5-5",
+          "claude-opus-5-5"
+        ],
+        "agent6_effort": "high",
+        "agent6_temperature": "CLI default",
+        "agent6_isolation": "--safe-mode",
+        "agent6_cli_version": "2.1.321 (Claude Code)",
+        "agent6_run_timestamp_utc": "2026-11-09T22:33:50.301245+00:00",
+        "agent6_session_id": "fa09f1d9-d3bc-4cb4-ba6f-819630349297",
+        "agent6_rationale_previous": "**T-24h decision rationale (research prototype, not for live operations)**\n\nInput data passed QA. At the T-24h lead time, the pipeline's rate-of-rise check (Agent 4) raised an elevated-risk flag on 2026-01-22 for 2026-01-23, when estimated inflow was 200.23 times baseline, giving one day of warning. In the pipeline's own simplified simulation (DERIVED, illustrative only), inflow peaked at 171.6 m3/s on 2026-02-07 and the reservoir reached 68.4% of nominal capacity. Both the anticipatory and reactive policies released at most 5.0 m3/s, and Agent 5 found no regulatory violations (0 rows). Because the simulated reservoir never came near full and both policies gave the same outflow, the pipeline would have recommended closer monitoring from 2026-01-22 but no large early releases. Official figures (CONFIRMED) show a much larger event: real inflow peaked at 3210 m3/s on 2026-01-28, the reservoir reached 166.4% of its 672.9 Mm3 nominal capacity on 2026-02-10, and controlled outflow peaked at 878 m3/s on 2026-02-09. So the simulation badly understated this flood and its outflow advice was not adequate here; the early-warning flag is the only part that held up.",
+        "agent6_previous_run": {
+          "agent6_isolation": null,
+          "agent6_model_requested": "claude-opus-5-5",
+          "agent6_model_id_returned": [
+            "claude-haiku-5-5",
+            "claude-opus-5-5"
+          ],
+          "agent6_effort": "high",
+          "agent6_temperature": "CLI default",
+          "agent6_cli_version": "2.1.321 (Claude Code)",
+          "agent6_run_timestamp_utc": "2026-11-09T22:14:33.109697+00:00",
+          "agent6_session_id": "6732faf5-5408-4d9f-8c72-e81e283645e5"
+        },
+        "agent6_rationale_before_previous": "DERIVED simulation (T-24h lead, illustrative only): peak inflow 171.6 m\u00b3/s on 2026-02-07, reservoir fill peaking at 68.4% of nominal capacity, anticipatory and reactive outflow policies converging on same 5.0 m\u00b3/s peak release. Agent 4 flagged elevated rate-of-rise risk 1 day ahead of the 2026-01-23 valid date (200.23x baseline inflow spike). Agent 5 found 0 regulatory constraint violations across the run, so no policy override needed at this lead time. For context only, CONFIRMED official figures show a much larger real event (peak fill 166.4% on 2026-02-10, peak inflow 3210 m\u00b3/s on 2026-01-28, peak controlled outflow 878 m\u00b3/s on 2026-02-09) \u2014 these are NOT what this T-24h simulation produced, and shouldn't be merged with the DERIVED numbers above."
       },
       "T-48h": {
         "status": "ok",
-        "rationale": "T-48h forecast (2026-01-23 \u2192 valid 2026-01-25): DERIVED sim show elevated-risk flag first trigger, inflow 4.78x baseline. Pipeline sim (illustrative, not real event) project peak inflow 187.9 m3/s (2026-02-04), reservoir fill peak 72.4% nominal capacity. Anticipatory vs reactive outflow policy tie, both 5.0 m3/s \u2014 no differentiation this lead time. Agent 5 found 0 regulatory violations across sim.\n\nNote: CONFIRMED real event far exceed these DERIVED numbers \u2014 real peak inflow 3210 m3/s (2026-01-28), real fill 166.4% nominal (2026-02-10), real controlled outflow 878 m3/s (2026-02-09). DERIVED sim badly undercount actual crisis magnitude \u2014 treat as illustrative pipeline output only, not forecast of real event.",
+        "rationale": "**Decision rationale: T-48h lead time (data QA: PASSED)**\n\nAt the T-48h lead time, the pipeline's rate-of-rise check (DERIVED) first raised an elevated-risk flag on 2026-01-23, for valid-date 2026-01-25, when estimated inflow reached 4.78x baseline. That gave a 2-day warning. The pipeline's simplified simulation (DERIVED, illustrative only) estimated a peak inflow of 187.9 m3/s on 2026-02-04 and a peak reservoir fill of 72.4% of nominal capacity. Peak outflow was 5.0 m3/s under both the anticipatory and reactive policies, with 0 regulatory constraint violations. Because the two policies gave the same outflow, the simulation alone gives no reason to recommend early releases at this lead time; the pipeline's recommendation is to treat the 2-day rate-of-rise flag as a prompt for operators to review conditions. For context only, official figures (CONFIRMED) show a real peak inflow of 3210 m3/s on 2026-01-28, a real peak controlled outflow of 878 m3/s on 2026-02-09, and a real peak fill of 166.4% of the 672.9 Mm3 nominal capacity on 2026-02-10. These are far above what the simulation produced, so this lead time's derived estimates greatly understated the event and should not be read as a forecast of the real crisis.",
         "numeric_summary": {
           "qa_status": "PASSED",
           "peak_inflow_m3s": 187.9108437005905,
@@ -7600,11 +7666,37 @@
           "peak_outflow_reactive_m3s": 5.0,
           "first_flag_summary": "first triggered for valid-date 2026-01-25 (4.78x baseline inflow), information available on 2026-01-23 (2d lead)",
           "regulatory_violations": "0 rows with a constraint violation"
-        }
+        },
+        "agent6_model_requested": "claude-opus-5-5",
+        "agent6_model_id_returned": [
+          "claude-haiku-5-5",
+          "claude-opus-5-5"
+        ],
+        "agent6_effort": "high",
+        "agent6_temperature": "CLI default",
+        "agent6_isolation": "--safe-mode",
+        "agent6_cli_version": "2.1.321 (Claude Code)",
+        "agent6_run_timestamp_utc": "2026-11-09T22:34:05.154687+00:00",
+        "agent6_session_id": "72ece4f6-2224-4c0d-9427-523b1413cc98",
+        "agent6_rationale_previous": "**Decision rationale for the T-48h forecast lead time (Oued El Makhazine, Jan\u2013Feb 2026)**\n\nInput data passed quality checks. On 2026-01-23 the pipeline's rate-of-rise check raised an elevated-risk flag for 2026-01-25, when estimated inflow reached 4.78x baseline, giving a 2-day lead. **DERIVED:** The pipeline's simplified simulation estimated a peak inflow of 187.9 m3/s on 2026-02-04 and a peak reservoir fill of 72.4% of nominal capacity, with no regulatory constraint violations. In that simulation the reservoir stayed well below full, so the anticipatory and reactive release policies gave the same peak outflow of 5.0 m3/s, and the simulation alone would not have recommended any early release. **CONFIRMED, for context only:** The real event was far larger, with inflow peaking at 3210 m3/s on 2026-01-28, the reservoir reaching 166.4% of its 672.9 Mm3 nominal capacity on 2026-02-10, and controlled outflow peaking at 878 m3/s on 2026-02-09. Operators should treat the early rate-of-rise flag as this lead time's useful signal and should not rely on the simulated volumes, which greatly understated the real flood.",
+        "agent6_previous_run": {
+          "agent6_isolation": null,
+          "agent6_model_requested": "claude-opus-5-5",
+          "agent6_model_id_returned": [
+            "claude-haiku-5-5",
+            "claude-opus-5-5"
+          ],
+          "agent6_effort": "high",
+          "agent6_temperature": "CLI default",
+          "agent6_cli_version": "2.1.321 (Claude Code)",
+          "agent6_run_timestamp_utc": "2026-11-09T22:14:48.856595+00:00",
+          "agent6_session_id": "77ca95c6-2f2b-43cb-9a2a-61cf4a11ceed"
+        },
+        "agent6_rationale_before_previous": "T-48h forecast (2026-01-23 \u2192 valid 2026-01-25): DERIVED sim show elevated-risk flag first trigger, inflow 4.78x baseline. Pipeline sim (illustrative, not real event) project peak inflow 187.9 m3/s (2026-02-04), reservoir fill peak 72.4% nominal capacity. Anticipatory vs reactive outflow policy tie, both 5.0 m3/s \u2014 no differentiation this lead time. Agent 5 found 0 regulatory violations across sim.\n\nNote: CONFIRMED real event far exceed these DERIVED numbers \u2014 real peak inflow 3210 m3/s (2026-01-28), real fill 166.4% nominal (2026-02-10), real controlled outflow 878 m3/s (2026-02-09). DERIVED sim badly undercount actual crisis magnitude \u2014 treat as illustrative pipeline output only, not forecast of real event."
       },
       "T-72h": {
         "status": "ok",
-        "rationale": "At T-72h lead time, DERIVED simulation flagged elevated risk early: rate-of-rise flag first tripped for valid-date 2026-01-24 (16.29x baseline inflow), with that signal available 3 days ahead on 2026-01-21. Simulated peak inflow reached 358.0 m\u00b3/s (2026-02-04), driving reservoir fill to 78.2% of nominal capacity \u2014 no regulatory constraint violations recorded (0 rows). Anticipatory and reactive outflow policies converged to same simulated peak, 5.0 m3/s, no differentiation benefit shown at this lead time. For context only \u2014 CONFIRMED official record shows real event far exceeded these derived numbers: real peak inflow 3210 m3/s (2026-01-28), real peak fill 166.4% (2026-02-10), real peak controlled outflow 878 m3/s (2026-02-09). Do not blend: DERIVED figures are this pipeline's simplified estimate at T-72h, not a match to CONFIRMED real event magnitude.",
+        "rationale": "**Decision rationale: T-72h lead time (Oued El Makhazine, research prototype)**\n\nThe input data passed QA. At this lead time the pipeline's own simplified estimate (DERIVED) put peak inflow at 358.0 m3/s on 2026-02-04 and peak reservoir fill at 78.2% of nominal capacity. Both the anticipatory and reactive policies held peak outflow at 5.0 m3/s, with 0 rows showing a regulatory constraint violation, so the two policies gave the same result here. The most useful signal for operators was the rate-of-rise check (DERIVED): information available on 2026-01-21 would have raised an elevated-risk flag for valid-date 2026-01-24, at 16.29x baseline inflow, giving a 3-day lead. For context only, the real event (CONFIRMED, from official and press sources) was far larger: inflow peaked at 3210 m3/s on 2026-01-28, controlled outflow peaked at 878 m3/s on 2026-02-09, and the reservoir reached 166.4% of its 672.9 Mm3 nominal capacity on 2026-02-10. The simulation at this lead time therefore greatly underestimated the real event, and its low-release result should not be read as evidence that the crisis could have been handled without large releases.",
         "numeric_summary": {
           "qa_status": "PASSED",
           "peak_inflow_m3s": 358.04488501513646,
@@ -7614,8 +7706,36 @@
           "peak_outflow_reactive_m3s": 5.0,
           "first_flag_summary": "first triggered for valid-date 2026-01-24 (16.29x baseline inflow), information available on 2026-01-21 (3d lead)",
           "regulatory_violations": "0 rows with a constraint violation"
-        }
+        },
+        "agent6_model_requested": "claude-opus-5-5",
+        "agent6_model_id_returned": [
+          "claude-haiku-5-5",
+          "claude-opus-5-5"
+        ],
+        "agent6_effort": "high",
+        "agent6_temperature": "CLI default",
+        "agent6_isolation": "--safe-mode",
+        "agent6_cli_version": "2.1.321 (Claude Code)",
+        "agent6_run_timestamp_utc": "2026-11-09T22:34:20.333068+00:00",
+        "agent6_session_id": "f0857491-c1a9-4817-bb10-4548bd4a2144",
+        "agent6_rationale_previous": "**Decision rationale for T-72h lead time (research prototype, not live operations)**\n\n> Input data passed quality checks. At this lead time, the pipeline's own simplified estimate (DERIVED, illustrative only) put peak inflow at 358.0 m3/s on 2026-02-04, with the reservoir filling to 78.2% of nominal capacity. Because simulated storage stayed below capacity, the anticipatory and reactive policies both released only 5.0 m3/s at peak, so this run gave no grounds to recommend larger releases, and it found 0 regulatory constraint violations. Separately, the rate-of-rise check raised an elevated-risk flag on 2026-01-21 for 2026-01-24 (16.29x baseline inflow, 3 days ahead), which operators should read as an early warning to watch the basin closely. For context only, CONFIRMED official and press figures show the real event was far larger: inflow peaked at 3210 m3/s on 2026-01-28, controlled outflow peaked at 878 m3/s on 2026-02-09, and fill peaked at 166.4% of the 672.9 Mm3 nominal capacity on 2026-02-10. This simulation therefore greatly understated the flood and does not describe what actually happened.\n\n- **Numbers:** I used only the figures you gave. I wrote no ratios or differences between DERIVED and CONFIRMED values. I described the gap in words, as \"far larger\" and \"greatly understated.\"\n- **Main weakness:** both policies released the same 5.0 m3/s. So at T-72h the pipeline couldn't tell anticipatory and reactive operation apart, and the only useful signal was the rate-of-rise flag. Reviewers will probably notice this, so it's worth addressing in the paper.",
+        "agent6_previous_run": {
+          "agent6_isolation": null,
+          "agent6_model_requested": "claude-opus-5-5",
+          "agent6_model_id_returned": [
+            "claude-haiku-5-5",
+            "claude-opus-5-5"
+          ],
+          "agent6_effort": "high",
+          "agent6_temperature": "CLI default",
+          "agent6_cli_version": "2.1.321 (Claude Code)",
+          "agent6_run_timestamp_utc": "2026-11-09T22:15:05.986805+00:00",
+          "agent6_session_id": "21d7ee6c-c6ae-4665-a834-79b5d1ed459e"
+        },
+        "agent6_rationale_before_previous": "At T-72h lead time, DERIVED simulation flagged elevated risk early: rate-of-rise flag first tripped for valid-date 2026-01-24 (16.29x baseline inflow), with that signal available 3 days ahead on 2026-01-21. Simulated peak inflow reached 358.0 m\u00b3/s (2026-02-04), driving reservoir fill to 78.2% of nominal capacity \u2014 no regulatory constraint violations recorded (0 rows). Anticipatory and reactive outflow policies converged to same simulated peak, 5.0 m3/s, no differentiation benefit shown at this lead time. For context only \u2014 CONFIRMED official record shows real event far exceeded these derived numbers: real peak inflow 3210 m3/s (2026-01-28), real peak fill 166.4% (2026-02-10), real peak controlled outflow 878 m3/s (2026-02-09). Do not blend: DERIVED figures are this pipeline's simplified estimate at T-72h, not a match to CONFIRMED real event magnitude."
       }
-    }
+    },
+    "agent6_rerun_note": "Rationales regenerated from the stored Agent 2-5 summaries with the pinned model and CLI isolation (agent6_isolation) (Agents 1-5 not rerun); the replaced rationale is kept per entry under agent6_rationale_previous, with its provenance under agent6_previous_run.",
+    "agent6_rerun_timestamp_utc": "2026-11-09T22:34:20.333380+00:00"
   }
 }
